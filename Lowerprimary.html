@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Lower Primary | CAM Academy </title>
+    <!-- Stylesheets -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/meanmenu.min.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/png">
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+
+    <style>
+        :root {
+            --maroon: #800000;
+            --blue: rgb(35, 29, 198);
+            --black: #000000;
+            --white: #ffffff;
+            --dark-blue: rgb(35, 29, 198);
+        }
+
+        .about-card {
+            border-left: 4px solid var(--maroon);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-heading {
+            color: var(--maroon);
+            position: relative;
+            padding-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .section-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--black);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--maroon);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .section-subtitle:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--maroon);
+            border-radius: 2px;
+        }
+
+        .content-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .requirement-item:hover {
+            transform: translateX(5px);
+        }
+
+        .requirement-item i {
+            color: var(--maroon);
+            margin-right: 1.2rem;
+            font-size: 1.3rem;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.8rem;
+            padding: 1.2rem 1.5rem;
+            border-left: 4px solid var(--maroon);
+            font-size: 1.1rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateX(5px);
+        }
+
+        .process-step-number {
+            background: var(--maroon);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.8rem;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(128, 0, 0, 0.2);
+        }
+
+        .process-step span {
+            padding-top: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--maroon);
+            border-color: var(--maroon);
+            color: var(--white) !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-blue);
+            border-color: var(--dark-blue);
+            color: var(--white) !important;
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-in-left.visible,
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .text-primary {
+            color: var(--maroon) !important;
+        }
+
+        .badge.bg-primary {
+            background-color: var(--maroon) !important;
+            color: var(--white) !important;
+        }
+
+        p,
+        li,
+        .lead {
+            color: var(--black);
+        }
+
+        .download-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(128, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(128, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <!-- Cursor -->
+        <div class="cursor"></div>
+        <div class="cursor-follower"></div>
+        <!-- Cursor End -->
+
+        <!-- Preloader -->
+        <div class="preloader"></div>
+        <!-- End Preloader -->
+
+	<!-- Main Header -->
+	<header class="main-header header-style-one">
+		
+		<!-- Header Lower -->
+		<div class="header-lower">
+			<div class="auto-container">
+				<div class="inner-container">
+					<div class="d-flex justify-content-between align-items-center flex-wrap">
+						
+						<div class="nav-outer d-flex align-items-center flex-wrap">
+							<!-- logo Box -->
+							<div class="logo-box">
+								<div class="logo"><a href="/"><img src="assets/images/55.png" alt="" title="CAM Academy"></a></div>
+							</div>
+							<!-- Main Menu -->
+							<nav class="main-menu navbar-expand-md">
+								<div class="navbar-header">
+									<!-- Toggle Button -->    	
+									<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+								
+								<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+									<ul class="navigation clearfix">
+										<li><a href="/">Home</a></li>
+
+										<li class="dropdown"><a href="#">Explore CAM</a>
+											<ul>
+												<li><a href="choose.html">Why CAM Academy</a></li>
+												<li><a href="Mission.html">Mission and Vision</a></li>
+											</ul>
+										</li>
+										<li><a href="about.html">About us</a></li>
+										<li class="dropdown">
+											<a href="#">Our Curriculum</a>
+											<ul>
+												<li>
+													<a href="Earlyyears.html">Early Years of Education</a>
+												</li>
+												<li>
+													<a href="Lowerprimary.html">Lower Primary</a>
+												</li>
+												<li>
+													<a href="Upperprimary.html">Upper Primary</a>
+												</li>
+												<li>
+													<a href="Juniorsecondary.html">Junior Secondary</a>
+												</li>
+											</ul>
+										</li>
+										<li class="dropdown">
+											<a href="Admissions.html">Admissions</a>
+											<ul>
+												<li><a href="Admissions.html">overview</a></li>
+												<li><a href="Termdates.html">Term Dates</a></li>
+											</ul>
+										</li>
+										<li class="dropdown">
+											<a href="#">CAM Experience</a>
+											<ul>
+												<li><a href="LifeatCAM.html">overview</a></li>
+												<li>
+
+												<li><a href="Gallery.html">Gallery </a></li>
+												<li>
+													<a href="ClubsandPrograms.html">Clubs and programs</a>
+												</li>
+											</ul>
+										</li>
+										<li><a href="/reachout.html">Contact</a></li>
+									</ul>
+								</div>
+							</nav>
+						</div>
+
+                            <!-- Main Menu End-->
+                            <div class="outer-box d-flex align-items-center flex-wrap">
+
+
+
+                                <!-- Button Box -->
+
+
+ 
+
+                                <!-- Mobile Navigation Toggler -->
+                                <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Header Lower-->
+
+            <!-- Mobile Menu  -->
+            <div class="mobile-menu">
+                <div class="menu-backdrop"></div>
+                <div class="close-btn"><span class="icon flaticon-close"></span></div>
+
+                <nav class="menu-box">
+                    <div class="nav-logo"><a href="/"><img src="assets/images/mobile-logo.png" alt="" title=""></a>
+                    </div>
+                    <div class="menu-outer">
+                        <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                    </div>
+                </nav>
+            </div>
+            <!-- End Mobile Menu -->
+
+        </header>
+        <!-- End Main Header -->
+
+        <!-- About Sidebar -->
+        <div class="about-sidebar">
+            <div class="gradient-layer"></div>
+            <!-- Close Button -->
+            <div class="close-sidebar-widget close-button">
+                <span class="fa-solid fa-xmark fa-fw"></span>
+            </div>
+            <div class="sidebar-inner">
+                <div class="upper-box">
+                    <div class="image">
+                        <img src="assets/images/resource/sideimage.jpg" alt="" />
+                    </div>
+                    <div class="content-box">
+                        <h3>About <span>CAM Academy</span></h3>
+                        <div class="text">Our school is dedicated to fostering a vibrant and nurturing community that
+                            guides every student's journey through education and personal growth. Our approach is
+                            founded on five core values that shape our ethos and influence every aspect of our
+                            curriculum and culture: </div>
+                        <ul class="about-sidebar_list">
+                            <li>Engaging Curriculum</li>
+                            <li>Expert Teachers</li>
+                            <li>Safe Environment</li>
+                            <li>Fun and Adventure</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Social Box -->
+                <div class="social-box">
+                    <a href="https://facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- End About Sidebar -->
+
+        <!-- Page Title -->
+        <section class="page-title">
+            <div class="color-one"></div>
+
+            <div class="color-four"></div>
+            <div class="auto-container">
+                <h2>Lower Primary Education</h2>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="index.html"><i class="flaticon-home"></i> CAM Academy</a></li>
+                    <li>Lower Primary Education</li>
+                </ul>
+            </div>
+            <!--Waves Container-->
+            <div>
+
+            </div>
+            <!--Waves end-->
+        </section>
+        <!-- End Page Title -->
+
+        <!-- Sidebar Page Container -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-card p-4 h-100 slide-in-left">
+                            <h3 class="section-title">
+                                Lower Primary Education
+                                <span class="badge bg-primary">Grades 1-3</span>
+                            </h3>
+                            <p class="lead">
+                                <strong>Our Lower Primary program builds on the foundational skills developed in early
+                                    years education, focusing on core literacy, numeracy, and critical thinking
+                                    abilities. We provide a supportive environment where children develop confidence,
+                                    independence, and a strong academic foundation.</strong>
+                            </p>
+                            <p>
+                                We implement a balanced curriculum that integrates the national syllabus with innovative
+                                teaching approaches. Our program encourages students to become active participants in
+                                their learning journey while developing essential skills for future academic success.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="./assets/images/resource/lower1.jpeg"
+                            class="img-fluid rounded shadow slide-in-right" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Environment Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center scroll-animate">
+                    <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                        <img src="./assets/images/resource/lower2.jpeg" alt="Lower Primary Classroom"
+                            class="img-fluid rounded shadow slide-in-right" />
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="content-card">
+                            <h3 class="section-title">Our Curriculum</h3>
+                            <p>
+                                Our Lower Primary curriculum focuses on mastering foundational skills in language arts,
+                                mathematics, science, and social studies. Students engage in daily literacy and numeracy
+                                blocks designed to strengthen their reading, writing, and mathematical abilities.
+                            </p>
+                            <p>
+                                We incorporate hands-on learning experiences, educational technology, and creative arts to
+                                ensure a well-rounded educational experience. Our curriculum also includes character
+                                education, physical education, and digital literacy components.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teacher Approach Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row align-items-center scroll-animate">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <img src="./assets/images/resource/lower3.jpeg" alt="Lower Primary Teachers"
+                            class="img-fluid rounded shadow slide-in-left" />
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="content-card">
+                            <h3 class="section-title">Our Teachers</h3>
+                            <p>
+                                Our experienced Lower Primary teachers employ a blend of traditional and innovative teaching
+                                methodologies. They create structured yet flexible learning environments where children can
+                                explore concepts, practice skills, and receive immediate feedback.
+                            </p>
+                            <p>
+                                We maintain optimal class sizes to ensure each student receives individualized attention.
+                                Our teachers work collaboratively with students to set goals, track progress, and celebrate
+                                achievements throughout the academic year.
+                            </p>
+                            <div class="mt-4">
+                                <a href="#" class="btn btn-primary">Meet Our Lower Primary Team</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admission Information Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center scroll-animate">
+                        <h2 class="section-title">Admission Information</h2>
+                        <p class="lead">
+                            Join our Lower Primary program and set your child on the path to academic excellence and character development.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row scroll-animate">
+					<div class="col-lg-8 mx-auto">
+						<div class="content-card mb-5">
+							<h4 class="section-subtitle">Admission Requirements</h4>
+							<div class="requirement-item">
+								<i class="fas fa-check-circle"></i>
+								<span><strong>Grade 1:</strong> Children aged 5-6 years</span>
+							</div>
+							<div class="requirement-item">
+								<i class="fas fa-check-circle"></i>
+								<span><strong>Grade 2:</strong> Children aged 6-7 years</span>
+							</div>
+							<div class="requirement-item">
+								<i class="fas fa-check-circle"></i>
+								<span><strong>Grade 3:</strong> Children aged 7-8 years</span>
+							</div>
+							<div class="requirement-item">
+								<i class="fas fa-check-circle"></i>
+								<span>Completed application form</span>
+							</div>
+							<div class="requirement-item">
+								<i class="fas fa-check-circle"></i>
+								<span>Birth certificate copy</span>
+							</div>
+							<div class="requirement-item">
+								<i class="fas fa-check-circle"></i>
+								<span>Previous school records (if applicable)</span>
+							</div>
+							<div class="requirement-item">
+								<i class="fas fa-check-circle"></i>
+								<span>Passport-sized photographs</span>
+							</div>
+						</div>
+
+						<div class="content-card">
+							<h4 class="section-subtitle">Application Process</h4>
+							<div class="process-step">
+								<div class="process-step-number">1</div>
+								<span>Submit completed application form and required documents</span>
+							</div>
+							<div class="process-step">
+								<div class="process-step-number">2</div>
+								<span>Schedule a school visit and informal assessment</span>
+							</div>
+							<div class="process-step">
+								<div class="process-step-number">3</div>
+								<span>Admission decision and notification</span>
+							</div>
+							<div class="process-step">
+								<div class="process-step-number">4</div>
+								<span>Payment of registration fee to secure placement</span>
+							</div>
+
+							<div class="text-center mt-5">
+								<a href="#" class="btn btn-primary download-btn">Download Application Form</a>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center scroll-animate">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-title">Build a Strong Academic Foundation</h2>
+                        <p class="lead mb-4">
+                            Schedule a visit to our Lower Primary program and discover how we nurture academic
+                            excellence and character development.
+                        </p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="reachout.html" class="btn btn-primary">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <div class="color-one"></div>
+            <div class="color-two"></div>
+            <div class="main-footer_pattern" style="
+            background-image: url(assets/images/background/header-pattern-1.png);
+          "></div>
+
+            <!-- Widgets Section -->
+            <div class="widgets-section" style="padding: 40px 0px 20px;">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="big-column col-lg-6 col-md-5 col-sm-5">
+                            <div class="row clearfix">
+                                <div class="footer_column col-lg-6 col-md-6 col-sm-12 text-center">
+                                    <div class="footer-widget">
+                                        <div class="footer-logo">
+                                            <a href="index.html"><img src="assets/images/55.png" alt="" title="" /></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="footer_column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="footer-widget links-widget">
+                                        <h5 class="footer-title">Quick Links</h5>
+                                        <ul class="footer-list">
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="Admissions.html">Admissions</a></li>
+                                            <li><a href="/reachout.html">Contact Us</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                            <div class="row clearfix">
+                                <div class="footer_column col-lg-12 col-md-12 col-sm-12">
+                                    <div class="footer-widget links-widget">
+                                        <h5 class="footer-title">Contact Info</h5>
+                                        <ul class="footer-list">
+                                            <li><a href="#">Kapsoi Village, Kenya</a></li>
+                                            <li><a href="mailto:camacademy@gmail.com">camacademy@gmail.com</a></li>
+                                            <li><a href="tel:254-721-786-576">254-721-786-576</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Widgets Section -->
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!-- Column -->
+                        <div class="column col-lg-12 col-md-12 col-sm-12 text-center">
+                            <div class="copyright">
+                                Copyright &copy; 2025 CAM Academy All Rights Reserved
+                            </div>
+
+                            <!-- End Main Footer -->
+
+
+
+                            <div class="progress-wrap">
+                                <svg class="progress-circle svg-content" width="100%" height="100%"
+                                    viewBox="-1 -1 102 102">
+                                    <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+                                </svg>
+                            </div>
+
+                            <script src="assets/js/jquery.js"></script>
+                            <script src="assets/js/popper.min.js"></script>
+                            <script src="assets/js/bootstrap.min.js"></script>
+                            <script src="assets/js/appear.js"></script>
+                            <script src="assets/js/parallax.min.js"></script>
+                            <script src="assets/js/tilt.jquery.min.js"></script>
+                            <script src="assets/js/jquery.paroller.min.js"></script>
+                            <script src="assets/js/wow.js"></script>
+                            <script src="assets/js/swiper.min.js"></script>
+                            <script src="assets/js/backtotop.js"></script>
+                            <script src="assets/js/odometer.js"></script>
+                            <script src="assets/js/parallax-scroll.js"></script>
+
+                            <script src="assets/js/gsap.min.js"></script>
+                            <script src="assets/js/SplitText.min.js"></script>
+                            <script src="assets/js/ScrollTrigger.min.js"></script>
+                            <script src="assets/js/ScrollToPlugin.min.js"></script>
+                            <script src="assets/js/ScrollSmoother.min.js"></script>
+
+                            <script src="assets/js/magnific-popup.min.js"></script>
+                            <script src="assets/js/nav-tool.js"></script>
+                            <script src="assets/js/jquery-ui.js"></script>
+                            <script src="assets/js/jquery.countdown.js"></script>
+                            <script src="assets/js/script.js"></script>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const observer = new IntersectionObserver((entries) => {
+                                        entries.forEach(entry => {
+                                            if (entry.isIntersecting) {
+                                                entry.target.classList.add('visible');
+                                            }
+                                        });
+                                    }, {
+                                        threshold: 0.1
+                                    });
+
+                                    document.querySelectorAll('.slide-in-left, .slide-in-right').forEach((el) => observer.observe(el));
+                                });
+                            </script>
+
+</body>
+
+</html>
