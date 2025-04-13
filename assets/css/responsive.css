@@ -188,6 +188,9 @@ a
 	.main-header .mobile-nav-toggler{
 		display:flex;
 		margin-left: 5px;
+		align-items: center;
+		height: 100%;
+		padding: 30px 0;
 	}
 	
 	.main-header .sticky-header .mobile-nav-toggler{
@@ -435,16 +438,38 @@ a
 		display:none !important;	
 	}
 	
-	.main-header .main-box .logo-box{
-		float:none;
-		text-align:center;
-		padding-bottom:10px;
+	.main-header .header-lower .outer-box{
+		position: relative;
+		z-index: 12;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 
-	.main-header .header-lower .outer-box{
-		position:relative;
-		z-index:12;
-		display:block;
+	.main-header .main-box .logo-box {
+		float: none;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+	}
+
+	.main-header .mobile-nav-toggler{
+		position: relative;
+		display: flex;
+		align-items: center;
+		top: 50%;
+		transform: translateY(-50%);
+		margin: 0;
+		padding: 0;
+	}
+
+	.main-header .header-lower .logo-box {
+		position: relative;
+		margin: 0;
+	}
+
+	.main-header .header-lower .logo-box .logo {
+		padding: 20px 0;
 	}
 	
 	.main-header .main-menu .navbar-header .navbar-toggler{
@@ -739,8 +764,30 @@ a
 		margin-top:10px;
 	}
 	
-	.main-header .header-lower .logo-box .logo{
-		padding:20px 0px;
+	.main-header .header-lower .outer-box{
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.main-header .mobile-nav-toggler{
+		position: relative;
+		display: flex;
+		align-items: center;
+		top: 50%;
+		transform: translateY(-50%);
+		margin: 0;
+		padding: 0;
+	}
+
+	.main-header .header-lower .logo-box {
+		position: relative;
+		margin: 0;
+	}
+
+	.main-header .header-lower .logo-box .logo {
+		padding: 20px 0;
 	}
 	
 	.booking-one .inner-container {
